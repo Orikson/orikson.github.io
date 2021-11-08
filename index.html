@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+  <head>
     <script src="p5.js"></script>
     <script src="seedrandom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -8,9 +9,32 @@
     <script src="src/Perlin.js"></script>
     <script src="src/Vector.js"></script>
 
-  </head>
-  <body>
     <script src="sketch.js"></script>
+  </head>
   
+  <body>
+    <div id="objectsContainer">
+      <div id="backgroundCanvas"></div>
 
-</body></html>
+      <div class="containerNoC" id="options">
+        <div class="options" id="optionsList">
+          
+        </div>
+        <div class="options" id="socials">
+          <a href="https://github.com/orikson">
+            <img class="stable" src="img/GitHub-Mark-Light-120px-plus.png" alt="github.com">
+          </a>
+          <a href="https://www.instagram.com/orikson.black/">
+            <img class="stable" src="img/glyph-logo_May2016.png" alt="instagram.com">
+          </a>
+        </div>
+        <div class="container" id="x" onclick="toggleX()">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/Utility.js"></script>
+  </body>
+</html>

@@ -7,7 +7,7 @@ class Particle {
     
     this.lx = x; this.ly = y;
     
-    this.a = 10
+    this.a = 5;
   }
   
   draw() {
@@ -64,7 +64,7 @@ class Particle {
   // gradient g is a "force" applied to the particle
   // details as an array [ax, ay]
   update(g) {
-    this.a += 0.5;
+    this.a += 0.3;
     
     this.ax = g[0];
     this.ay = g[1];
@@ -93,7 +93,7 @@ class Particle {
       this.lx = this.x;
       this.ly = this.y;
       this.vy = random(-5,5);
-      this.a = 10;
+      this.a = 5;
     }
   }
 }

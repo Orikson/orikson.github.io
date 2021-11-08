@@ -16,10 +16,10 @@ var gradients;
 // random seed (any string)
 var SEED = "Eron Ristich!";
 
-function setup() {
-  createCanvas(2000, 800);
-  background(0);
+// frame count
+var frameCount = 0;
 
+function generate() {
   particles = [];
   for (let i = 0; i < nP; i++) {
     let rng = random();
@@ -45,21 +45,71 @@ function setup() {
   }
 }
 
+function setup() {
+  var cnv = createCanvas(windowWidth, windowHeight);
+  cnv.style('display', 'block');
+
+  cnv.parent('backgroundCanvas');
+
+  background(0);
+
+  generate();  
+}
+
+function windowResized() {
+  frameCount = 0;
+
+  resizeCanvas(windowWidth, windowHeight);
+
+  background(0);
+  generate();
+}
+
 // rounds coordinate to nearest calculated gradient (accepts vec2, returns vec2)
 function roundCoord(v) {
-  return new vec2(floor((v.x / width) * n), floor((v.y / height) * n));
+  return new vec2(floor((v.x / windowWidth) * n), floor((v.y / windowHeight) * n));
 }
 
 function draw() {
+  frameCount ++;
+  if (frameCount == 1000) {
+    frameCount = 0;
+    background(0,0,0,50);
+
+    let rngr = random(256);
+    let rngg = random(256);
+    let rngb = random(256);
+
+    for (let i = 0; i < nP; i ++) {
+      particles[i].c.setRed(rngr + random(-20,20));
+      particles[i].c.setGreen(rngg + random(-20,20));
+      particles[i].c.setBlue(rngb + random(-20,20));
+    }
+  }
+
+  if (frameCount < 100) {
+    background(0, 0, 0, 50);
+  }
+
   //background(255);
 
   for (let i = 0; i < nP; i++) {
     particles[i].draw();
 
     let rPos = roundCoord(new vec2(particles[i].x, particles[i].y));
-    let r = gradients[rPos.x][rPos.y];
 
-    particles[i].update([cos(2 * PI * r), sin(2 * PI * r)]);
+    if (rPos.x < gradients.length) {
+      let r = gradients[rPos.x][rPos.y];
+
+      particles[i].update([cos(2 * PI * r), sin(2 * PI * r)]);
+    } else {
+      particles[i].x = 0;
+      particles[i].y = height/2 + random(-100,100);
+      particles[i].lx = 0;
+      particles[i].ly = particles[i].y;
+      particles[i].vy = random(-5,5);
+      particles[i].a = 5;
+    }
   }
   
   /*
