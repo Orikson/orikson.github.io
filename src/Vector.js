@@ -76,6 +76,18 @@ class vec3 {
       return new vec3(this.x/v.x, this.y/v.y, this.z/v.z);
     }
   }
+  
+  mag() {
+    return sqrt(this.x*this.x + this.y*this.y + this.z*this.z);
+  }
+  
+  cross(v) {
+    return new vec3(
+      this.y*v.z-this.z*v.y,
+      this.z*v.x-this.x*v.z,
+      this.x*v.y-this.y*v.x
+    )
+  }
 }
 
 
