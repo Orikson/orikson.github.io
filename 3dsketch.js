@@ -129,7 +129,7 @@ function mouseReleased() {
 // camera global variables
 // camera rotation (x, y)
 var cxr = 0; var lcxr = 0;
-var cyr = 1*PI/2; var lcyr = 1*PI/2;
+var cyr = 1.687; var lcyr = 1.687;
 
 // distance from origin
 var cD = 5;
@@ -151,7 +151,7 @@ function draw() {
   background(0, 0, 0);
   
   // mouse drag to move camera
-  if (mouseDown) {
+  if (mouseDown && 1==0) {
     if (first) {
       lmX = mouseX; lmY = mouseY;
       first = false;
@@ -171,9 +171,9 @@ function draw() {
     }
     
     cxr = sin(frame/300)/8-2;
+    cyr = 1.686; var lcyr = 1.686;
   }
 
-  
   //cPos = new vec3(cos(frame), sin(frame), 1);
   cPos = new vec3(cos(cxr)*sin(cyr), sin(cxr)*sin(cyr), cos(cyr));
   cPos = cPos.times(cD);
