@@ -1,1 +1,3 @@
-# orikson.github.io
+# Eron Ristich
+
+Computer Science Junior @ ASU
