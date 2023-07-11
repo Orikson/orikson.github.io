@@ -32,7 +32,6 @@ export default {
 <style lang="css">
 canvas {
   outline: none;
-  z-index: -1;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 </style>
