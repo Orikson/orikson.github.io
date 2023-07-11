@@ -1,5 +1,6 @@
 import {
   ArcRotateCamera,
+  Color3,
   Color4,
   Engine,
   HemisphericLight,
@@ -25,12 +26,16 @@ export function createScene(canvas: HTMLCanvasElement) {
   );
 
   const light = new HemisphericLight("light", Vector3.Up(), scene);
+  light.diffuse = new Color3(29 / 128, 78 / 128, 216 / 128);
+  light.specular = new Color3(29 / 128, 78 / 128, 216 / 128);
   light.intensity = 0.7;
 
   const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+  sphere.position.x = -2;
   sphere.rotation = new Vector3(0, 0, 0);
   const box = MeshBuilder.CreateBox("box", { size: 1 }, scene);
   box.position.y = -1.5;
+  box.position.x = -2;
   sphere.rotation = new Vector3(0, 0, 0);
 
   const cameraMomentum = new Momentum((x: number) => {
