@@ -8,6 +8,7 @@
           <span id="delim">&nbsp;</span>
         </div>
         <textarea
+          spellcheck="false"
           type="text"
           style="
             color: rgb(200, 200, 200);
