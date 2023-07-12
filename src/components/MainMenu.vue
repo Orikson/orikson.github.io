@@ -5,14 +5,28 @@
   >
     <v-card
       persistent
+      flat
+      color="transparent"
       title="Eron Ristich"
       subtitle="Computer Science Junior @ ASU"
       style="margin: 20px"
     >
     </v-card>
-    <v-card persistent style="margin: 20px">
-      <v-toolbar color="rgb(20,20,20)" density="compact"> </v-toolbar>
-      <div>...</div>
+    <v-card persistent style="margin: 20px; min-height: 300px">
+      <v-toolbar color="rgb(20,20,20)" density="compact">
+        <v-btn icon density="compact" size="small">
+          <v-icon color="red">mdi-circle-medium</v-icon>
+        </v-btn>
+
+        <v-btn icon density="compact" size="small">
+          <v-icon color="yellow">mdi-circle-medium</v-icon>
+        </v-btn>
+
+        <v-btn icon density="compact" size="small">
+          <v-icon color="green">mdi-circle-medium</v-icon>
+        </v-btn>
+      </v-toolbar>
+      <CommandLine></CommandLine>
     </v-card>
 
     <v-spacer></v-spacer>
@@ -46,12 +60,14 @@
 </template>
 
 <script lang="ts">
+import CommandLine from "./CommandLine.vue";
+
 export default {
   name: "MainMenu",
   setup() {
     return {};
   },
-  components: {},
+  components: { CommandLine },
 };
 </script>
 
