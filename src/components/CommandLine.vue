@@ -92,7 +92,7 @@ export default {
     onMounted(() => {
       if (terminalInput.value) {
         terminalInputWrapper = new InputWrapper(terminalInput.value);
-        terminalInputWrapper.prepend = "C:\\Users\\eron>";
+        terminalInputWrapper.prepend = "C:\\Users\\eron> ";
         terminalInputWrapper.depth = terminalInputWrapper.prepend.length;
         addDirectory();
 
