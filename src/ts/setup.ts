@@ -46,7 +46,9 @@ export function createScene(canvas: HTMLCanvasElement) {
   }, 0.95);
 
   canvas.addEventListener("wheel", (ev) => {
-    cameraMomentum.impulse(ev.deltaY / 1000);
+    if (ev.deltaY !== 0) {
+      cameraMomentum.impulse((0.5 * ev.deltaY) / Math.abs(ev.deltaY));
+    }
   });
 
   engine.runRenderLoop(() => {
