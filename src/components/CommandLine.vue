@@ -1,12 +1,9 @@
 <template>
-  <div style="padding: 0% 1%; display: flex; height: 100%">
+  <div style="padding-left: 1%; width: 100%; height: calc(100% - 40px)">
     <div id="output"></div>
-    <span style="width: 100%; display: flex; flex: 1 1 auto">
-      <div id="input" style="position: relative; display: flex; flex: 1 1 auto">
-        <div
-          class="caret-underscore"
-          style="position: absolute; display: flex; flex: 1 1 auto"
-        >
+    <span style="width: 100%; width: 100%; height: 100%">
+      <div id="input" style="position: relative; width: 100%; height: 100%">
+        <div class="caret-underscore" style="position: absolute; height: 100%">
           <p id="caret" ref="caret"></p>
         </div>
         <textarea
@@ -42,6 +39,10 @@ const delim = document.createElement("span");
 delim.id = "delim";
 delim.innerHTML = "&nbsp;";
 
+const text2 = document.createElement("span");
+text2.id = "text2";
+text2.innerHTML = "";
+
 const registeredObservers: ((x: number) => void)[] = [];
 let pos = 0;
 let lastValue = "";
@@ -52,7 +53,6 @@ function updatePosition(e: any) {
     addDirectory();
     lastValue = nextValue;
   }
-  terminalInputWrapper.resetScroll();
 
   const depth = terminalInputWrapper.depth;
   if (depth !== pos || depth < terminalInputWrapper.prepend.length) {
@@ -96,9 +96,9 @@ export default {
         terminalInputWrapper.prepend = "C:\\Users\\eron> ";
         terminalInputWrapper.depth = terminalInputWrapper.prepend.length;
         if (caret.value) {
-          console.log(caret.value.textContent);
           caret.value.textContent = terminalInputWrapper.prepend;
           caret.value.insertAdjacentElement("beforeend", delim);
+          caret.value.insertAdjacentElement("beforeend", text2);
         }
 
         addDirectory();
@@ -116,10 +116,19 @@ export default {
         terminalInput.value.addEventListener("select", updatePosition); // Some browsers support this event
         terminalInput.value.addEventListener("selectstart", updatePosition); // Some browsers support this event
 
+        terminalInput.value.addEventListener("scroll", () => {
+          if (caret.value && terminalInput.value) {
+            caret.value.scrollTop = terminalInput.value.scrollTop;
+          }
+        });
+
         registeredObservers.push((x) => {
           if (caret.value && terminalInput.value) {
             caret.value.childNodes[0].nodeValue =
               terminalInput.value.value.substring(0, x);
+            caret.value.childNodes[2].textContent =
+              terminalInput.value.value.substring(x + 2);
+            caret.value.scrollTop = terminalInput.value.scrollTop;
           }
         });
       }
@@ -135,11 +144,6 @@ export default {
       commands: [],
     };
   },
-  methods: {
-    updateText() {
-      console.log(this);
-    },
-  },
 };
 </script>
 
@@ -149,19 +153,44 @@ export default {
   background: rgb(50, 50, 50);
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #999;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
 #input {
   outline: none;
-  overflow: hidden;
+  overflow: auto;
   resize: none;
   word-break: break-all;
+  width: 100%;
   height: 100%;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 #caret {
-  max-width: 100%;
-  max-height: 100%;
-  flex: 1 1 auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  word-break: break-all;
+  color: transparent;
+  white-space: pre-wrap;
+}
+
+#text2 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
   word-break: break-all;
   color: transparent;
   white-space: pre-wrap;
