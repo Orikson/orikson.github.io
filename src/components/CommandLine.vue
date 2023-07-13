@@ -1,13 +1,16 @@
 <template>
-  <div style="padding: 0% 1%">
+  <div style="padding: 0% 1%; display: flex; height: 100%">
     <div id="output"></div>
-    <span>
-      <div id="input" style="position: inherit">
-        <div class="caret-underscore" style="width: 100%; position: absolute">
-          <span id="caret" ref="caret"></span>
-          <span id="delim">&nbsp;</span>
+    <span style="width: 100%; display: flex; flex: 1 1 auto">
+      <div id="input" style="position: relative; display: flex; flex: 1 1 auto">
+        <div
+          class="caret-underscore"
+          style="position: absolute; display: flex; flex: 1 1 auto"
+        >
+          <p id="caret" ref="caret"></p>
         </div>
         <textarea
+          id="input"
           spellcheck="false"
           type="text"
           style="
@@ -35,17 +38,21 @@ function replaceAt(s: string, index: number, replacement: string) {
   );
 }
 
+const delim = document.createElement("span");
+delim.id = "delim";
+delim.innerHTML = "&nbsp;";
+
 const registeredObservers: ((x: number) => void)[] = [];
 let pos = 0;
 let lastValue = "";
 let terminalInputWrapper: InputWrapper;
 function updatePosition(e: any) {
   const nextValue = terminalInputWrapper.input.value;
-  console.log(nextValue, lastValue);
   if (lastValue !== nextValue) {
     addDirectory();
     lastValue = nextValue;
   }
+  terminalInputWrapper.resetScroll();
 
   const depth = terminalInputWrapper.depth;
   if (depth !== pos || depth < terminalInputWrapper.prepend.length) {
@@ -68,12 +75,6 @@ function addDirectory() {
   if (curValue.length < prepLen) {
     terminalInputWrapper.input.value = terminalInputWrapper.prepend;
   } else {
-    console.log(
-      "prepend",
-      curValue.substring(0, prepLen),
-      terminalInputWrapper.prepend,
-      curValue.substring(0, prepLen) !== terminalInputWrapper.prepend
-    );
     if (curValue.substring(0, prepLen) !== terminalInputWrapper.prepend) {
       terminalInputWrapper.input.value = replaceAt(
         terminalInputWrapper.input.value,
@@ -94,6 +95,12 @@ export default {
         terminalInputWrapper = new InputWrapper(terminalInput.value);
         terminalInputWrapper.prepend = "C:\\Users\\eron> ";
         terminalInputWrapper.depth = terminalInputWrapper.prepend.length;
+        if (caret.value) {
+          console.log(caret.value.textContent);
+          caret.value.textContent = terminalInputWrapper.prepend;
+          caret.value.insertAdjacentElement("beforeend", delim);
+        }
+
         addDirectory();
 
         terminalInput.value.addEventListener("keypress", updatePosition); // Every character written
@@ -111,7 +118,8 @@ export default {
 
         registeredObservers.push((x) => {
           if (caret.value && terminalInput.value) {
-            caret.value.textContent = terminalInput.value.value.substring(0, x);
+            caret.value.childNodes[0].nodeValue =
+              terminalInput.value.value.substring(0, x);
           }
         });
       }
@@ -141,21 +149,34 @@ export default {
   background: rgb(50, 50, 50);
 }
 
-textarea {
+#input {
   outline: none;
+  overflow: hidden;
   resize: none;
+  word-break: break-all;
   height: 100%;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 #caret {
+  max-width: 100%;
+  max-height: 100%;
+  flex: 1 1 auto;
+  word-break: break-all;
   color: transparent;
+  white-space: pre-wrap;
+}
+
+#delim {
+  animation: blink 1s step-end infinite;
+  border-bottom: 4px solid white;
   white-space: pre;
 }
 
-.caret-underscore > #delim {
-  animation: blink 1s step-end infinite;
-  border-bottom: 4px solid white;
+.caret-underscore {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 @keyframes blink {

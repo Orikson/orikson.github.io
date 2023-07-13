@@ -41,7 +41,7 @@ export class InputWrapper {
       return range2.toString().length;
     }
 
-    return target.selectionStart ?? 0;
+    return target.selectionEnd ?? 0;
   }
 
   set depth(pos: number) {
@@ -55,5 +55,11 @@ export class InputWrapper {
       this.focus();
       window.getSelection()!.collapse(target.firstChild, pos);
     } else target.setSelectionRange(pos, pos);
+  }
+
+  resetScroll() {
+    const target = this.input;
+
+    target.scrollTop = 0;
   }
 }
