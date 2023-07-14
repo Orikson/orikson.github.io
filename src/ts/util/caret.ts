@@ -53,7 +53,7 @@ export class InputWrapper {
 
     if (target.isContentEditable) {
       this.focus();
-      window.getSelection()!.collapse(target.firstChild, pos);
+      window.getSelection()?.collapse(target.firstChild, pos);
     } else target.setSelectionRange(pos, pos);
   }
 

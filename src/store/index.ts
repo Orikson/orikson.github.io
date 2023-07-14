@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-explicit-any: 0 */
+
 import { Engine } from "@babylonjs/core";
 import { createStore } from "vuex";
 

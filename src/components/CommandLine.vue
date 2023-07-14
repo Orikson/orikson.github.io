@@ -47,7 +47,7 @@ const registeredObservers: ((x: number) => void)[] = [];
 let pos = 0;
 let lastValue = "";
 let terminalInputWrapper: InputWrapper;
-function updatePosition(e: any) {
+function updatePosition() {
   const nextValue = terminalInputWrapper.input.value;
   if (lastValue !== nextValue) {
     addDirectory();

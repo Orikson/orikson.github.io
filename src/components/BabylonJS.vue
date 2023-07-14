@@ -14,9 +14,7 @@ export default {
 
     onMounted(() => {
       if (bjsCanvas.value) {
-        const { scene, engine } = createScene(
-          bjsCanvas.value as HTMLCanvasElement
-        );
+        const { engine } = createScene(bjsCanvas.value as HTMLCanvasElement);
 
         store.commit("setEngine", engine);
       }

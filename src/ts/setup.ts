@@ -16,7 +16,7 @@ export function createScene(canvas: HTMLCanvasElement) {
 
   scene.clearColor = new Color4(0, 0, 0, 0);
 
-  const camera = new ArcRotateCamera(
+  new ArcRotateCamera(
     "camera",
     Math.PI / 3,
     Math.PI / 2,

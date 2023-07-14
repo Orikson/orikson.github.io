@@ -24,7 +24,6 @@
 import { defineComponent } from "vue";
 import BabylonJS from "./components/BabylonJS.vue";
 import MainMenu from "./components/MainMenu.vue";
-import store from "@/store";
 
 export default defineComponent({
   name: "App",

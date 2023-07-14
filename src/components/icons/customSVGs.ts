@@ -5,6 +5,7 @@ import InstagramIcon from "./instagramIcon.vue";
 import GitlabIcon from "./gitlabIcon.vue";
 import LinkedinIcon from "./linkedinIcon.vue";
 
+// eslint-disable-next-line
 const customSvgNameToComponent: any = {
   GithubIcon,
   InstagramIcon,
