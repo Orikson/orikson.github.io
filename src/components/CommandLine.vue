@@ -60,19 +60,32 @@ function updatePosition(e: any) {
   }
 
   // Process input
-  if (e.type == "keydown" && e.key == "Enter") {
-    const input = terminalInputWrapper.input.value.substring(
-      terminalInputWrapper.prepend.length
-    );
-    terminalInputWrapper.prepend =
-      terminalInputWrapper.input.value +
-      "\n" +
-      terminal.processInput(input) +
-      terminal.header;
-    addDirectory();
-    lastValue = terminalInputWrapper.input.value;
-    terminalInputWrapper.input.scrollTop =
-      terminalInputWrapper.input.scrollHeight;
+  if (e.type == "keydown") {
+    if (e.key == "Enter") {
+      const input = terminalInputWrapper.input.value.substring(
+        terminalInputWrapper.prepend.length
+      );
+      terminalInputWrapper.prepend =
+        terminalInputWrapper.input.value +
+        "\n" +
+        terminal.processInput(input) +
+        terminal.header;
+      addDirectory();
+      lastValue = terminalInputWrapper.input.value;
+      terminalInputWrapper.input.scrollTop =
+        terminalInputWrapper.input.scrollHeight;
+      terminal.resetHistory();
+    } else if (e.key == "ArrowUp") {
+      const next = terminal.incHistory();
+      if (next) {
+        terminalInputWrapper.input.value = terminalInputWrapper.prepend + next;
+      }
+    } else if (e.key == "ArrowDown") {
+      const next = terminal.decHistory();
+      if (next) {
+        terminalInputWrapper.input.value = terminalInputWrapper.prepend + next;
+      }
+    }
   }
   if (e.type == "keypress" && e.key == "Enter") {
     e.preventDefault();

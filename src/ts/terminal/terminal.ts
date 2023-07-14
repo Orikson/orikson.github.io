@@ -19,6 +19,38 @@ export class Terminal {
     return this._commands;
   }
 
+  private commandHistory: string[] = [];
+  public getCommandHistory(i: number) {
+    if (i < 0) {
+      if (i < -this.commandHistory.length) {
+        return undefined;
+      }
+      return this.commandHistory[this.commandHistory.length + i - 1];
+    }
+    if (i >= this.commandHistory.length) {
+      return undefined;
+    }
+    return this.commandHistory[i];
+  }
+  private historyIndex = 0;
+  public incHistory() {
+    if (this.historyIndex + 1 > this.commandHistory.length) {
+      return undefined;
+    }
+    this.historyIndex += 1;
+    return this.commandHistory[this.commandHistory.length - this.historyIndex];
+  }
+  public decHistory() {
+    if (this.historyIndex - 1 <= 0) {
+      return undefined;
+    }
+    this.historyIndex -= 1;
+    return this.commandHistory[this.commandHistory.length - this.historyIndex];
+  }
+  public resetHistory() {
+    this.historyIndex = 0;
+  }
+
   constructor(user: string) {
     this.user = user;
     this._currentDirectory = "/";
@@ -37,6 +69,8 @@ export class Terminal {
     }
 
     const command = input[0];
+    this.commandHistory.push(line);
+
     const exec = this.commands.get(command);
     if (!exec) {
       return `Unrecognized command ${command}. Run the help command to get information on available commands\n`;
