@@ -40,6 +40,10 @@
         <v-icon>custom:GitlabIcon</v-icon>
       </v-btn>
 
+      <v-btn icon color="rgba(0, 0, 0, 0)" href="mailto:eristich@asu.edu">
+        <v-icon>mdi-email</v-icon>
+      </v-btn>
+
       <v-btn
         icon
         color="rgba(0, 0, 0, 0)"
