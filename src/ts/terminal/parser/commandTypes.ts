@@ -1,4 +1,3 @@
-import { DirectionalLight } from "@babylonjs/core";
 import { Terminal } from "../terminal";
 
 /**
