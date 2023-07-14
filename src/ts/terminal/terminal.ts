@@ -114,4 +114,34 @@ export class Terminal {
 
     return curr as Folder;
   }
+
+  // `dir` must be an absolute path
+  setDirectory(path: string): boolean {
+    const dir = path.split("/");
+
+    let curr: Item = this.directories;
+    if (!isFolder(curr)) {
+      return false;
+    }
+
+    for (const directory of dir) {
+      if (directory == "") {
+        continue;
+      }
+
+      if (!isFolder(curr)) {
+        return false;
+      }
+
+      const child = curr.children.get(directory);
+      if (child && isFolder(child)) {
+        curr = child;
+      } else {
+        return false;
+      }
+    }
+
+    this.currentDirectory = path;
+    return true;
+  }
 }
