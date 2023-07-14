@@ -32,8 +32,6 @@ ls [path]
       actualPath = absolutePath;
     }
 
-    console.log(actualPath, actualPath.split("/"));
-
     const result = terminal.getDirectory(actualPath.split("/"));
     if (!result) {
       return `Could not find directory at ${actualPath}\n`;

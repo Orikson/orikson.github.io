@@ -6,7 +6,6 @@ export class InputWrapper {
 
   set text(s: string) {
     this._text = s;
-    console.log(s);
   }
 
   get text() {
