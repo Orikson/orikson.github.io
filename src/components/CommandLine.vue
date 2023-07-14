@@ -196,6 +196,7 @@ export default {
 #input {
   outline: none;
   overflow: auto;
+  overscroll-behavior: contain;
   resize: none;
   word-break: break-all;
   width: 100%;
