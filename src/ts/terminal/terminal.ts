@@ -14,7 +14,10 @@ export class Terminal {
   }
 
   private directories = Directories;
-  private commands = Commands;
+  private _commands = Commands;
+  public get commands() {
+    return this._commands;
+  }
 
   constructor(user: string) {
     this.user = user;
