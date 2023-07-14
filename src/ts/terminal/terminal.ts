@@ -62,7 +62,7 @@ export class Terminal {
 
   // Processes the command given by text input, and returns the command's output
   private processCommand(line: string): string {
-    const input = line.split(" ");
+    const input = line.trim().split(/\s+/);
 
     if (input.length == 0) {
       return "";
