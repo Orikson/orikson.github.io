@@ -26,6 +26,7 @@
 <script lang="ts">
 import { ref, onMounted } from "@vue/runtime-core";
 import { InputWrapper } from "@/ts/util/caret";
+import { Terminal } from "@/ts/terminal/terminal";
 
 function replaceAt(s: string, index: number, replacement: string) {
   return (
@@ -47,13 +48,37 @@ const registeredObservers: ((x: number) => void)[] = [];
 let pos = 0;
 let lastValue = "";
 let terminalInputWrapper: InputWrapper;
-function updatePosition() {
+
+const terminal = new Terminal("eron@github");
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function updatePosition(e: any) {
   const nextValue = terminalInputWrapper.input.value;
   if (lastValue !== nextValue) {
     addDirectory();
     lastValue = nextValue;
   }
 
+  // Process input
+  if (e.type == "keydown" && e.key == "Enter") {
+    const input = terminalInputWrapper.input.value.substring(
+      terminalInputWrapper.prepend.length
+    );
+    terminalInputWrapper.prepend =
+      terminalInputWrapper.input.value +
+      "\n" +
+      terminal.processInput(input) +
+      terminal.header;
+    addDirectory();
+    lastValue = terminalInputWrapper.input.value;
+    terminalInputWrapper.input.scrollTop =
+      terminalInputWrapper.input.scrollHeight;
+  }
+  if (e.type == "keypress" && e.key == "Enter") {
+    e.preventDefault();
+  }
+
+  // Update cerat position
   const depth = terminalInputWrapper.depth;
   if (depth !== pos || depth < terminalInputWrapper.prepend.length) {
     // Update observables here
@@ -93,7 +118,7 @@ export default {
     onMounted(() => {
       if (terminalInput.value) {
         terminalInputWrapper = new InputWrapper(terminalInput.value);
-        terminalInputWrapper.prepend = "eron@github_io:~$ ";
+        terminalInputWrapper.prepend = terminal.header;
         terminalInputWrapper.depth = terminalInputWrapper.prepend.length;
         if (caret.value) {
           caret.value.textContent = terminalInputWrapper.prepend;
