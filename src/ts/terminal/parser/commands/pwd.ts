@@ -9,7 +9,7 @@ pwd
 `,
   callback: (terminal: Terminal, ...args: string[]) => {
     if (args.length > 0) {
-      return "Invalid number of arguments. Usage: help [command]\n";
+      return "Invalid number of arguments. Usage: pwd\n";
     }
 
     return terminal.currentDirectory + "\n";
