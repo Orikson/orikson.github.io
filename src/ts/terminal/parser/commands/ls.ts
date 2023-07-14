@@ -27,7 +27,7 @@ ls [path]
         terminal.currentDirectory
       );
       if (!success) {
-        return `Invalid directory ${path}.\n`;
+        return `Invalid directory ${path}\n`;
       }
       actualPath = absolutePath;
     }
