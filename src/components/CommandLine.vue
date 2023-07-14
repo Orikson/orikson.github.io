@@ -93,7 +93,7 @@ export default {
     onMounted(() => {
       if (terminalInput.value) {
         terminalInputWrapper = new InputWrapper(terminalInput.value);
-        terminalInputWrapper.prepend = "C:\\Users\\eron> ";
+        terminalInputWrapper.prepend = "eron@github_io:~$ ";
         terminalInputWrapper.depth = terminalInputWrapper.prepend.length;
         if (caret.value) {
           caret.value.textContent = terminalInputWrapper.prepend;
