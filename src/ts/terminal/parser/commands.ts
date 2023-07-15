@@ -1,4 +1,5 @@
 import { Command } from "./commandTypes";
+import { CAT } from "./commands/cat";
 import { CD } from "./commands/cd";
 import { HELP } from "./commands/help";
 import { LS } from "./commands/ls";
@@ -9,4 +10,5 @@ export const Commands = new Map<string, Command>([
   ["help", HELP],
   ["pwd", PWD],
   ["cd", CD],
+  ["cat", CAT],
 ]);
