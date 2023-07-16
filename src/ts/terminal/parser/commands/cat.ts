@@ -11,7 +11,7 @@ cat <file>
     Specifies the file you choose to view the contents of.
 `,
   callback: (terminal: Terminal, ...args: string[]) => {
-    if (args.length > 1) {
+    if (args.length > 1 || args.length == 0) {
       return "Invalid number of arguments. Usage: cat <file>\n";
     }
 
