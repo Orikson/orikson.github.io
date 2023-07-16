@@ -9,10 +9,10 @@
       color="transparent"
       title="Eron Ristich"
       subtitle="Computer Science Junior @ ASU"
-      style="margin: 20px"
+      style="margin-top: 20px; margin-left: 20px; height: 100px"
     >
     </v-card>
-    <v-card persistent style="margin: 20px; min-height: 300px">
+    <v-card persistent style="margin: 20px; height: 100%">
       <v-toolbar color="rgb(20,20,20)" density="compact">
         <v-btn icon density="compact" size="small">
           <v-icon color="red">mdi-circle-medium</v-icon>

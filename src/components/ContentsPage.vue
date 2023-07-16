@@ -22,6 +22,7 @@
       <p class="p">Here are a few technologies I've been working with:</p>
       <ul>
         <li>C/C++</li>
+        <li>Julia</li>
         <li>OpenGL</li>
         <li>OpenCL</li>
         <li>CUDA</li>
@@ -29,6 +30,15 @@
         <li>WebAssembly</li>
         <li>WebGL</li>
       </ul>
+
+      <p class="p" style="margin-top: 50px">
+        To navigate this page, use the terminal to the left.
+      </p>
+      <p class="p">
+        Try using the command <span class="w h">help</span> to view available
+        commands, and <span class="w h">help [command]</span> on any of those
+        commands to view more information about them
+      </p>
     </v-card>
   </div>
 </template>
@@ -96,5 +106,9 @@ li::before {
 }
 .w:hover {
   color: rgb(150, 150, 150);
+}
+
+.h {
+  background: rgb(50, 50, 50);
 }
 </style>
