@@ -1,6 +1,6 @@
 <template>
   <div
-    style="position: absolute; width: 47.5%; height: 80%; margin: 5%"
+    style="position: absolute; width: 45%; height: 80%; margin: 5%"
     class="d-flex flex-column"
   >
     <v-card

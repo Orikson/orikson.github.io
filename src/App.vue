@@ -15,7 +15,10 @@
       >
         <BabylonJS v-resize="onResize" style="height: 100%; width: 100%" />
       </div>
-      <MainMenu></MainMenu>
+      <v-col>
+        <MainMenu></MainMenu>
+        <ContentsPage></ContentsPage>
+      </v-col>
     </v-main>
   </v-app>
 </template>
@@ -24,6 +27,7 @@
 import { defineComponent } from "vue";
 import BabylonJS from "./components/BabylonJS.vue";
 import MainMenu from "./components/MainMenu.vue";
+import ContentsPage from "./components/ContentsPage.vue";
 
 export default defineComponent({
   name: "App",
@@ -31,6 +35,7 @@ export default defineComponent({
   components: {
     BabylonJS,
     MainMenu,
+    ContentsPage,
   },
 
   data() {
