@@ -2,54 +2,19 @@
   <div
     style="position: absolute; width: 45%; height: 80%; right: 0%; margin: 5%"
   >
-    <v-card
-      persistent
-      flat
-      color="transparent"
-      title="About Me"
-      style="margin: 20px"
-    >
-      <p class="p">Hi! <span>👋</span></p>
-      <p class="p">
-        I am an <span class="w">undergraduate</span> at ASU studying
-        <span class="w">computer science</span>. I have an interest in
-        <span class="r">computer graphics</span>,
-        <span class="g">computational physics and fluid dynamics</span>,
-        <span class="b">high performance computing</span>, and, recently,
-        <span class="y">quantum computing</span>.
-      </p>
-
-      <p class="p">Here are a few technologies I've been working with:</p>
-      <ul>
-        <li>C/C++</li>
-        <li>Julia</li>
-        <li>OpenGL</li>
-        <li>OpenCL</li>
-        <li>CUDA</li>
-        <li>Typescript</li>
-        <li>WebAssembly</li>
-        <li>WebGL</li>
-      </ul>
-
-      <p class="p" style="margin-top: 50px">
-        To navigate this page, use the terminal to the left.
-      </p>
-      <p class="p">
-        Try using the command <span class="w h">help</span> to view available
-        commands, and <span class="w h">help [command]</span> on any of those
-        commands to view more information about them
-      </p>
-    </v-card>
+    <AboutPage></AboutPage>
   </div>
 </template>
 
 <script lang="ts">
+import AboutPage from "./AboutPage.vue";
+
 export default {
   name: "ContentsPage",
   setup() {
     return {};
   },
-  components: {},
+  components: { AboutPage },
 };
 </script>
 
