@@ -49,7 +49,7 @@ let pos = 0;
 let lastValue = "";
 let terminalInputWrapper: InputWrapper;
 
-const terminal = new Terminal("eron@github");
+export const terminal = new Terminal("eron@github");
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function updatePosition(e: any) {
