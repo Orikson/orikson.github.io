@@ -1,5 +1,7 @@
+import { PageIndices, isFolder } from "../../directories";
 import { Terminal } from "../../terminal";
 import { Command } from "../commandTypes";
+import { parseFile } from "../parseInputs";
 
 export const CAT = {
   command: "cat",
@@ -15,6 +17,32 @@ cat <file>
       return "Invalid number of arguments. Usage: cat <file>\n";
     }
 
-    return "\n";
+    const path = args[0];
+
+    const [{ absolutePath, fileName }, success] = parseFile(
+      path,
+      terminal.currentDirectory
+    );
+    if (!success) {
+      return `Invalid path to file ${path}\n`;
+    }
+
+    const res = terminal.getDirectory(absolutePath.split("/"));
+    if (!res) {
+      return `Could not find directory ${absolutePath}\n`;
+    }
+
+    if (res.children.has(fileName)) {
+      if (isFolder(res.children.get(fileName))) {
+        return `Cannot open folder ${fileName} as a file\n`;
+      }
+
+      // open file
+      terminal.currentPage = PageIndices[fileName];
+      console.log(terminal.currentPage);
+      return `Opening ${fileName}\n`;
+    }
+
+    return `Could not find file named ${fileName}\n`;
   },
 } as Command;
