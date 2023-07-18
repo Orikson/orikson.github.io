@@ -23,6 +23,12 @@ const about: File = {
   actions: [],
 };
 
+// Experience file
+const experience: File = {
+  name: "experience",
+  actions: [],
+};
+
 // Projects folder
 const projects: Folder = {
   name: "Projects",
@@ -33,6 +39,12 @@ export const Directories: Folder = {
   name: "root",
   children: new Map([
     ["about", about as Item],
+    ["experience", experience as Item],
     ["projects", projects as Item],
   ]),
+};
+
+export const PageIndices: { [key: string]: number } = {
+  about: 0,
+  experience: 1,
 };
