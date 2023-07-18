@@ -4,6 +4,18 @@ import { Commands } from "./parser/commands";
 export class Terminal {
   user: string;
 
+  pageObservables: ((p: number) => void)[] = [];
+  private _currentPage = 0;
+  public get currentPage() {
+    return this._currentPage;
+  }
+  public set currentPage(page: number) {
+    for (const observable of this.pageObservables) {
+      observable(page);
+    }
+    this._currentPage = page;
+  }
+
   private _currentDirectory: string;
   public get currentDirectory() {
     return this._currentDirectory;
