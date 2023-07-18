@@ -19,7 +19,7 @@ help [command]
       const command = terminal.commands.get(args[0]);
 
       if (!command) {
-        return "Invalid command ${args[0]}. Type help to get a list of available commands.\n";
+        return `Unrecognized command ${args[0]}. Type help to get a list of available commands.\n`;
       }
       return command.usage + "\n";
     }
