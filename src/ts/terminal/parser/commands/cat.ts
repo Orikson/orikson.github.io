@@ -39,7 +39,6 @@ cat <file>
 
       // open file
       terminal.currentPage = PageIndices[fileName];
-      console.log(terminal.currentPage);
       return `Opening ${fileName}\n`;
     }
 
