@@ -30,7 +30,7 @@ export function createScene(canvas: HTMLCanvasElement) {
   light.specular = new Color3(29 / 128, 78 / 128, 216 / 128);
   light.intensity = 0.7;
 
-  const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
+  /*const sphere = MeshBuilder.CreateSphere("sphere", { diameter: 1 }, scene);
   sphere.position.x = -2;
   sphere.rotation = new Vector3(0, 0, 0);
   const box = MeshBuilder.CreateBox("box", { size: 1 }, scene);
@@ -50,10 +50,11 @@ export function createScene(canvas: HTMLCanvasElement) {
       cameraMomentum.impulse((0.5 * ev.deltaY) / Math.abs(ev.deltaY));
     }
   });
+  */
 
   engine.runRenderLoop(() => {
     engine.resize();
-    cameraMomentum.update();
+    //cameraMomentum.update();
     scene.render();
   });
 
