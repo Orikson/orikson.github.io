@@ -64,10 +64,6 @@ li::before {
   left: 0px;
 }
 
-.p {
-  margin: 10px 5px;
-  color: rgb(180, 180, 180);
-}
 .b {
   cursor: pointer;
   color: rgb(175, 175, 255);
