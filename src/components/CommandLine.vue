@@ -50,6 +50,8 @@ let lastValue = "";
 let terminalInputWrapper: InputWrapper;
 
 export const terminal = new Terminal("eron@github");
+let tabCounter = 0;
+let tabPrefix: string | null = null;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function updatePosition(e: any) {
@@ -85,6 +87,33 @@ function updatePosition(e: any) {
       if (next) {
         terminalInputWrapper.input.value = terminalInputWrapper.prepend + next;
       }
+    } else if (e.key == "Tab") {
+      e.preventDefault();
+
+      const input = terminalInputWrapper.input.value.substring(
+        terminalInputWrapper.prepend.length
+      );
+      const inputArr = input.split(" ");
+      const last = inputArr.pop();
+
+      if (tabPrefix === null) {
+        tabPrefix = last ?? "";
+        tabCounter = 0;
+      }
+
+      const options = terminal.tabComplete.findAllWithPrefix(tabPrefix).sort();
+      if (options.length !== 0) {
+        tabCounter = (tabCounter + 1) % options.length;
+        inputArr.push(options[tabCounter]);
+
+        terminalInputWrapper.input.value =
+          terminalInputWrapper.prepend + inputArr.join(" ");
+      }
+    }
+
+    if (e.key != "Tab") {
+      tabPrefix = null;
+      tabCounter = 0;
     }
   }
   if (e.type == "keypress" && e.key == "Enter") {

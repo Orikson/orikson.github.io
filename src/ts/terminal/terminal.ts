@@ -1,3 +1,4 @@
+import { Trie } from "../util/trie";
 import { Directories, Folder, Item, isFolder } from "./directories";
 import { Commands } from "./parser/commands";
 
@@ -66,6 +67,41 @@ export class Terminal {
   constructor(user: string) {
     this.user = user;
     this._currentDirectory = "/";
+
+    this.updateTabComplete();
+  }
+
+  public tabComplete: Trie = new Trie();
+
+  public updateTabComplete() {
+    this.tabComplete = new Trie();
+
+    const allNames = this.getCommandNames().concat(this.getFileNames());
+    for (const name of allNames) {
+      this.tabComplete.insert(name);
+    }
+  }
+
+  private getCommandNames(): string[] {
+    const ret = [];
+    for (const [name] of this.commands) {
+      ret.push(name);
+    }
+    return ret;
+  }
+
+  private getFileNames(): string[] {
+    const currentDirectory = this.getDirectory(
+      this.currentDirectory.split("/")
+    );
+    if (!currentDirectory) {
+      return [];
+    }
+    const ret = [];
+    for (const [name] of currentDirectory.children) {
+      ret.push(name);
+    }
+    return ret;
   }
 
   get header() {
@@ -97,7 +133,9 @@ export class Terminal {
       return "";
     }
 
-    return this.processCommand(input);
+    const output = this.processCommand(input);
+    this.updateTabComplete();
+    return output;
   }
 
   // `dir` must be an array where each string is the next directory (i.e. derived from an absolute path)
