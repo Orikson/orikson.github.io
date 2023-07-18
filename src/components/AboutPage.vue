@@ -97,11 +97,7 @@ li::before {
   color: rgb(200, 200, 125);
 }
 .w {
-  cursor: pointer;
   color: rgb(255, 255, 255);
-}
-.w:hover {
-  color: rgb(150, 150, 150);
 }
 
 .h {
