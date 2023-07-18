@@ -57,6 +57,6 @@ export default defineComponent({
 
 <style>
 body {
-  font-family: "Cascadia Code", sans-serif;
+  font-family: "Cascadia Code", monospace;
 }
 </style>
