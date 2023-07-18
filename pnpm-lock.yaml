@@ -8,6 +8,9 @@ dependencies:
   '@babylonjs/core':
     specifier: ^6.11.1
     version: 6.11.1
+  '@formkit/auto-animate':
+    specifier: ^0.7.0
+    version: 0.7.0
   '@mdi/font':
     specifier: 5.9.55
     version: 5.9.55
@@ -1411,6 +1414,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@formkit/auto-animate@0.7.0:
+    resolution: {integrity: sha512-RczHUr0AhRPssREoNdRjLfk2b/id9/DFnbIq18QM8L7E4zNV3XH+WO480EZ46BQHDEsv76YPJ0JbG2Y2i3GfXw==}
+    dev: false
 
   /@hapi/hoek@9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
