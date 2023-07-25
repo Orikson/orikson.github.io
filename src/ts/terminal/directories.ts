@@ -29,10 +29,39 @@ const experience: File = {
   actions: [],
 };
 
+// Quibbit file
+const quibbit: File = {
+  name: "quibbit",
+  actions: [],
+};
+
+// Streamline CFD file
+const streamline: File = {
+  name: "streamline",
+  actions: [],
+};
+
+// 2D/3D Physics Engine file
+const physics: File = {
+  name: "physics",
+  actions: [],
+};
+
+// 2D/3D Fluid Dynamics simulation file
+const fluids: File = {
+  name: "fluids",
+  actions: [],
+};
+
 // Projects folder
 const projects: Folder = {
   name: "Projects",
-  children: new Map<string, Item>(),
+  children: new Map<string, Item>([
+    ["streamline", streamline as Item],
+    ["quibbit", quibbit as Item],
+    ["physics", physics as Item],
+    ["fluids", fluids as Item],
+  ]),
 };
 
 export const Directories: Folder = {
@@ -47,4 +76,8 @@ export const Directories: Folder = {
 export const PageIndices: { [key: string]: number } = {
   about: 0,
   experience: 1,
+  streamline: 2,
+  quibbit: 3,
+  physics: 4,
+  fluids: 5,
 };
