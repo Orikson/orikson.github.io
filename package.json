@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "pnpm run build & pnpm gh-pages -d dist"
+    "deploy": "pnpm run build & echo eron.ristich.com > ./dist/CNAME & pnpm gh-pages -d dist"
   },
   "dependencies": {
     "@babylonjs/core": "^6.11.1",
