@@ -15,10 +15,10 @@
       ></ExperiencePage>
     </v-slide-y-transition>
     <v-slide-y-transition>
-      <AboutPage
+      <StreamlineCFD
         style="position: absolute; top: 0px"
         v-show="page === 2"
-      ></AboutPage>
+      ></StreamlineCFD>
     </v-slide-y-transition>
     <v-slide-y-transition>
       <AboutPage
@@ -32,6 +32,7 @@
 <script lang="ts">
 import AboutPage from "./AboutPage.vue";
 import ExperiencePage from "./ExperiencePage.vue";
+import StreamlineCFD from "./StreamlineCFD.vue";
 import { terminal } from "./CommandLine.vue";
 import { defineComponent } from "@vue/runtime-core";
 
@@ -50,7 +51,7 @@ export default defineComponent({
       this.page = page;
     });
   },
-  components: { AboutPage, ExperiencePage },
+  components: { AboutPage, ExperiencePage, StreamlineCFD },
 });
 </script>
 
