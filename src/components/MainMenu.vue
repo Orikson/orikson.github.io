@@ -32,15 +32,30 @@
     <v-spacer></v-spacer>
 
     <v-col style="flex-grow: 0" align="center">
-      <v-btn icon color="rgba(0, 0, 0, 0)" href="https://github.com/Orikson">
+      <v-btn
+        icon
+        color="rgba(0, 0, 0, 0)"
+        href="https://github.com/Orikson"
+        target="_blank"
+      >
         <v-icon>custom:GithubIcon</v-icon>
       </v-btn>
 
-      <v-btn icon color="rgba(0, 0, 0, 0)" href="https://gitlab.com/Orikson">
+      <v-btn
+        icon
+        color="rgba(0, 0, 0, 0)"
+        href="https://gitlab.com/Orikson"
+        target="_blank"
+      >
         <v-icon>custom:GitlabIcon</v-icon>
       </v-btn>
 
-      <v-btn icon color="rgba(0, 0, 0, 0)" href="mailto:eristich@asu.edu">
+      <v-btn
+        icon
+        color="rgba(0, 0, 0, 0)"
+        href="mailto:eristich@asu.edu"
+        target="_blank"
+      >
         <v-icon>mdi-email</v-icon>
       </v-btn>
 
@@ -48,6 +63,7 @@
         icon
         color="rgba(0, 0, 0, 0)"
         href="https://www.linkedin.com/in/eristich/"
+        target="_blank"
       >
         <v-icon>custom:LinkedinIcon</v-icon>
       </v-btn>
