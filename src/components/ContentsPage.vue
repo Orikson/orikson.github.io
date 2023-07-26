@@ -21,9 +21,21 @@
       ></StreamlineCFD>
     </v-slide-y-transition>
     <v-slide-y-transition>
-      <AboutPage
+      <QuibbitJL
         style="position: absolute; top: 0px"
         v-show="page === 3"
+      ></QuibbitJL>
+    </v-slide-y-transition>
+    <v-slide-y-transition>
+      <PhysicsEngine
+        style="position: absolute; top: 0px"
+        v-show="page === 4"
+      ></PhysicsEngine>
+    </v-slide-y-transition>
+    <v-slide-y-transition>
+      <AboutPage
+        style="position: absolute; top: 0px"
+        v-show="page === 5"
       ></AboutPage>
     </v-slide-y-transition>
   </div>
@@ -33,6 +45,8 @@
 import AboutPage from "./AboutPage.vue";
 import ExperiencePage from "./ExperiencePage.vue";
 import StreamlineCFD from "./StreamlineCFD.vue";
+import QuibbitJL from "./QuibbitJL.vue";
+import PhysicsEngine from "./PhysicsEngine.vue";
 import { terminal } from "./CommandLine.vue";
 import { defineComponent } from "@vue/runtime-core";
 
@@ -51,7 +65,13 @@ export default defineComponent({
       this.page = page;
     });
   },
-  components: { AboutPage, ExperiencePage, StreamlineCFD },
+  components: {
+    AboutPage,
+    ExperiencePage,
+    StreamlineCFD,
+    QuibbitJL,
+    PhysicsEngine,
+  },
 });
 </script>
 
