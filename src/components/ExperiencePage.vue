@@ -25,7 +25,10 @@
     </ol>
     <p class="p">
       Check out this
-      <a href="https://f8vps-pointcloud.forum8.co.jp/" target="_blank">
+      <a
+        href="https://f8vps-pointcloud.forum8.co.jp/#/scene/castle"
+        target="_blank"
+      >
         <span class="g">demo</span>
       </a>
       I made for FORUM8's international VR summer workshop
