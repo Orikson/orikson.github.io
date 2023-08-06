@@ -33,10 +33,10 @@
       ></PhysicsEngine>
     </v-slide-y-transition>
     <v-slide-y-transition>
-      <AboutPage
+      <FluidEngines
         style="position: absolute; top: 0px"
         v-show="page === 5"
-      ></AboutPage>
+      ></FluidEngines>
     </v-slide-y-transition>
   </div>
 </template>
@@ -47,6 +47,7 @@ import ExperiencePage from "./ExperiencePage.vue";
 import StreamlineCFD from "./StreamlineCFD.vue";
 import QuibbitJL from "./QuibbitJL.vue";
 import PhysicsEngine from "./PhysicsEngine.vue";
+import FluidEngines from "./FluidEngines.vue";
 import { terminal } from "./CommandLine.vue";
 import { defineComponent } from "@vue/runtime-core";
 
@@ -71,6 +72,7 @@ export default defineComponent({
     StreamlineCFD,
     QuibbitJL,
     PhysicsEngine,
+    FluidEngines,
   },
 });
 </script>
