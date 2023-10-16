@@ -1,6 +1,13 @@
 <template>
   <div
-    style="position: absolute; width: 45%; height: 80%; right: 0%; margin: 5%"
+    style="
+      position: absolute;
+      width: 45%;
+      height: 80%;
+      right: 0%;
+      margin: 5%;
+      overflow-y: scroll;
+    "
   >
     <v-slide-y-transition>
       <AboutPage

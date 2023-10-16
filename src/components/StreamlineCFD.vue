@@ -26,6 +26,18 @@
         </figcaption>
       </figure>
     </div>
+
+    <div style="width: 100%; text-align: center">
+      <figure>
+        <video controls autoplay style="width: 75%">
+          <source src="./plume.webm" type="video/webm" />
+        </video>
+        <figcaption>
+          CUDA kernels for vorticity confinement, exported to voxels using
+          OpenVDB, and rendered using Houdini
+        </figcaption>
+      </figure>
+    </div>
   </v-card>
 </template>
 
