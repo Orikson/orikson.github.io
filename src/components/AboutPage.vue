@@ -36,6 +36,12 @@
       commands, and <span class="w h">help [command]</span> on any of those
       commands to view more information about them
     </p>
+    <p class="p">
+      To view some of my projects, type <span class="w h">cd projects</span> and
+      then type <span class="w h">ls</span> to view some projects, and type
+      <span class="w h">cat [PROJECT]</span> to view more information about each
+      project
+    </p>
   </v-card>
 </template>
 
