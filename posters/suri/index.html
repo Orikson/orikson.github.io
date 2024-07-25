@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width"><meta name="description" content="" />
+
+<title>
+    
+    Soft Robotic Simulation using Physics-Informed Koopman Operators in the Low-data Limit | Eron Ristich
+    
+</title>
+
+<link rel="canonical" href="https://eron.ristich.com/posters/suri/" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.ab10af543529dc0c3f09f51a926563b23e059cf1c71e1f8c6eb8b192feed782d.css" media="all">
+
+
+
+
+  
+
+
+
+
+  </head>
+
+  
+
+  
+  
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Eron Ristich</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/about">
+                /about
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/misc">
+                /misc
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+<div class="breadcrumbs">
+    
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a href="/posters/">Posters</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a class="breadcrumbs-current" href="/posters/suri/">Soft Robotic Simulation using Physics-Informed Koopman Operators in the Low-data Limit</a>
+</div>
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Soft Robotic Simulation using Physics-Informed Koopman Operators in the Low-data Limit</h1>
+    
+    <p class="single-summary">Presented at the 2024 SURI Symposium at Arizona State University</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-07-18T00:52:13-07:00">July 18, 2024</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p align="center">
+    <img src="/images/suri_poster.png" alt="SURI Poster" width="60%">
+</p>
+<p>Check out the poster <a href="/pdfs/Ristich_SURI_Poster.pdf">here</a>.</p>
+<h1 id="abstract">Abstract</h1>
+<p>Existing methods for soft robotic control rely on either large quantities of data or computationally expensive numerical simulations, which makes real-time control intractable and potentially dangerous to human operators. In this research, a new method is proposed which combines the efficiency of data-driven methods with the physical accuracy of numerical simulations, thereby reducing necessary data requirements while improving prediction accuracy. This enables soft robots to function effectively in real-time scenarios, improving their overall utility and their safety when working near human operators. Future work involves integrations of this method into more complicated soft robotic systems where their governing physical equations are not necessarily fully known.</p>
+<h1 id="brief-background-on-koopman-operators">Brief Background on Koopman Operators</h1>
+<p>Consider a dynamical system whose time evolution is described by
+$$
+\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u})
+$$
+where $\mathbf{x} \in \mathcal{X}$ describes the state of the system evolving on some smooth manifold $\mathcal{X}$, $\dot{\mathbf{x}}$ denotes the time derivative of $\mathbf{x}$, $\mathbf{u} \in \mathcal{U}$ describes the inputs to the system on a smooth manifold $\mathcal{U}$, and $\mathbf{f}: \mathcal{X} \times \mathcal{U} \rightarrow \mathcal{X}$ is a vector field that characterizes the dynamics. In the context of robotics, $\mathbf{x}$ can be thought of the state of some robot, and $\mathbf{u}$ as the applied actuation. Further, one can consider $\mathbf{x} \in \mathbb{R}^n$ and $\mathbf{u} \in \mathbb{R}^m$, where $\mathbf{u}$ is not assumed to be constrained to a smooth manifold. In discrete time, the system is propagated forward in time by the flow map
+$$
+\mathbf{x}(t_0 + t) = \mathbf{F}_t(\mathbf{x}(t_0), \mathbf{u}(t_0))
+= \mathbf{x}(t_0) + \int_{t_0}^{t_0 + t} \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) d\tau
+$$</p>
+<p>The Koopman operator $\mathcal{K}_t$ is an infinite-dimensional linear operator that acts on functions $g: \mathcal{X} \times \mathcal{U} \rightarrow \mathbb{R}$ called <em>observables</em> which are elements of some infinite-dimensional Hilbert space $\mathcal{H}$, typically the Lebesgue square-integrable functions. In particular, the Koopman operator propagates measurements of state forward in time, as
+$$
+\mathcal{K}_t g = g \circ \mathbf{F}_t
+$$
+where $\circ$ is the function composition operator. Importantly, the infinitesimal generator of the Koopman operator is also a linear operator, given by the Lie derivative
+$$
+\dot{g} = \lim_{t \rightarrow 0} \frac{\mathcal{K}_t g - g}{t} = \mathcal{L} g = \nabla_\mathbf{x} g \cdot \mathbf{f} + \nabla_\mathbf{u} g \cdot \dot{\mathbf{u}}
+$$
+where the last equality arises from the fact that $\mathcal{L}$ is a Liouville operator. As a simplification, we can assume that over a single time step $\mathbf{u}$ is constant, and thus its time derivative is $0$. Here, $\mathcal{L}$ is sometimes referred to as the continuous-time Koopman operator, whereas $\mathcal{K}_t$ is referred to as the discrete-time Koopman operator.</p>
+
+    
+  </div>
+
+  
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

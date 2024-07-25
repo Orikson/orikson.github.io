@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posters on Eron Ristich</title>
+    <link>https://eron.ristich.com/posters/</link>
+    <description>Recent content in Posters on Eron Ristich</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jul 2024 00:52:13 -0700</lastBuildDate>
+    <atom:link href="https://eron.ristich.com/posters/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Soft Robotic Simulation using Physics-Informed Koopman Operators in the Low-data Limit</title>
+      <link>https://eron.ristich.com/posters/suri/</link>
+      <pubDate>Thu, 18 Jul 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/posters/suri/</guid>
+      <description>Presented at the 2024 SURI Symposium at Arizona State University</description>
+    </item>
+    <item>
+      <title>Solving the Hydrodynamic View of the Schrödinger Equations using Smoothed Particle Hydrodynamics</title>
+      <link>https://eron.ristich.com/posters/madelung/</link>
+      <pubDate>Fri, 15 Dec 2023 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/posters/madelung/</guid>
+      <description>Presented to MAT 494/APM 598 at Arizona State University</description>
+    </item>
+  </channel>
+</rss>

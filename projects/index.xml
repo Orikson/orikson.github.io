@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Eron Ristich</title>
+    <link>https://eron.ristich.com/projects/</link>
+    <description>Recent content in Projects on Eron Ristich</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 May 2024 00:52:13 -0700</lastBuildDate>
+    <atom:link href="https://eron.ristich.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Relaxation Models for Self-Regulated Coarse-Graining: Application to Generalized Langevin Equations and Brownian Motion</title>
+      <link>https://eron.ristich.com/projects/stoch_relax/</link>
+      <pubDate>Fri, 10 May 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/projects/stoch_relax/</guid>
+      <description>Undergraduate Honors Thesis</description>
+    </item>
+    <item>
+      <title>Skin Repair and Infection Control in Diabetic, Obese Mice using Bioactive Laser-activated Sealants</title>
+      <link>https://eron.ristich.com/projects/silk_mice/</link>
+      <pubDate>Mon, 22 Apr 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/projects/silk_mice/</guid>
+      <description>Published in Biomaterials</description>
+    </item>
+  </channel>
+</rss>

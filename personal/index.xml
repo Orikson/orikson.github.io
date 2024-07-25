@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personals on Eron Ristich</title>
+    <link>https://eron.ristich.com/personal/</link>
+    <description>Recent content in Personals on Eron Ristich</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Nov 2023 00:52:13 -0700</lastBuildDate>
+    <atom:link href="https://eron.ristich.com/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streamline CFD</title>
+      <link>https://eron.ristich.com/personal/streamline_cfd/</link>
+      <pubDate>Mon, 13 Nov 2023 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/personal/streamline_cfd/</guid>
+      <description>Computational fluid dynamics (CFD) engine using OpenCL</description>
+    </item>
+  </channel>
+</rss>

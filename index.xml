@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Eron Ristich</title>
+    <link>https://eron.ristich.com/</link>
+    <description>Recent content in Home on Eron Ristich</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jul 2024 00:52:13 -0700</lastBuildDate>
+    <atom:link href="https://eron.ristich.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Soft Robotic Simulation using Physics-Informed Koopman Operators in the Low-data Limit</title>
+      <link>https://eron.ristich.com/posters/suri/</link>
+      <pubDate>Thu, 18 Jul 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/posters/suri/</guid>
+      <description>Presented at the 2024 SURI Symposium at Arizona State University</description>
+    </item>
+    <item>
+      <title>Relaxation Models for Self-Regulated Coarse-Graining: Application to Generalized Langevin Equations and Brownian Motion</title>
+      <link>https://eron.ristich.com/projects/stoch_relax/</link>
+      <pubDate>Fri, 10 May 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/projects/stoch_relax/</guid>
+      <description>Undergraduate Honors Thesis</description>
+    </item>
+    <item>
+      <title>Skin Repair and Infection Control in Diabetic, Obese Mice using Bioactive Laser-activated Sealants</title>
+      <link>https://eron.ristich.com/projects/silk_mice/</link>
+      <pubDate>Mon, 22 Apr 2024 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/projects/silk_mice/</guid>
+      <description>Published in Biomaterials</description>
+    </item>
+    <item>
+      <title>Solving the Hydrodynamic View of the Schrödinger Equations using Smoothed Particle Hydrodynamics</title>
+      <link>https://eron.ristich.com/posters/madelung/</link>
+      <pubDate>Fri, 15 Dec 2023 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/posters/madelung/</guid>
+      <description>Presented to MAT 494/APM 598 at Arizona State University</description>
+    </item>
+    <item>
+      <title>Streamline CFD</title>
+      <link>https://eron.ristich.com/personal/streamline_cfd/</link>
+      <pubDate>Mon, 13 Nov 2023 00:52:13 -0700</pubDate>
+      <guid>https://eron.ristich.com/personal/streamline_cfd/</guid>
+      <description>Computational fluid dynamics (CFD) engine using OpenCL</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://eron.ristich.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://eron.ristich.com/about/</guid>
+      <description>I started my studies at Arizona State University starting in 2021, where I am currently working as a research assistant at the Yarger lab. I also conduct research with the Robotic Actuators &amp;amp; Dynamics Lab.&#xA;Past Experiences Position Date Description Research Assistant at the Yarger Lab August 2023 - Present Developed numerical integrators for stochastic dynamical systems that lift timestep restrictions on producing the correct statistics at long times. Additionally, worked on various projects involving spider silk and cloud chemistry software.</description>
+    </item>
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://eron.ristich.com/misc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://eron.ristich.com/misc/</guid>
+      <description>This page contains miscellaneous projects and activities that I have worked on in the past that I figured would be worth sharing.</description>
+    </item>
+  </channel>
+</rss>
